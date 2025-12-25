@@ -68,7 +68,7 @@ student-assessment-report/
 ```bash
 cd backend
 npm install
-node server.js
+node src/server.js
 ```
 
 ### Backend server runs at:
