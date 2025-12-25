@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import ScoreSummary from "../components/ScoreSummary";
 import Feedback from "../components/Feedback";
 
+const baseUrl = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5000";
+
 export default function Report() {
   const [report, setReport] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/report")
+    fetch(`${baseUrl}/api/report`)
       .then((res) => res.json())
       .then((data) => {
         setReport(data);

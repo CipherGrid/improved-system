@@ -3,6 +3,7 @@ import cors from "cors";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import "dotenv/config";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,7 +13,7 @@ const studentData = JSON.parse(
 );
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: [process.env.CLIENT_URL || "http://localhost:5173"],
 };
 
 const app = express();
@@ -24,7 +25,7 @@ app.get("/api/report", (req, res) => {
   res.json(studentData);
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`Backend running on PORT: ${PORT}`);
+  console.log(`Server running on PORT: ${PORT}`);
 });
