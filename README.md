@@ -81,9 +81,11 @@ GET http://localhost:5000/api/report
 
 ### Run Frontend
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
 ### Frontend application runs at:
 
